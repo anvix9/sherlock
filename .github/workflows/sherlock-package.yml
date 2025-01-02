@@ -1,4 +1,4 @@
-name: Sherlock 
+name: sherlock 
 
 on: [push, pull_request]
 
@@ -22,4 +22,4 @@ jobs:
         pip install -e .
     - name: Run tests
       run: |
-        pytest test/ --cov=src/ --cov-report=term-missing
+        pytest tests/ --cov=src/ --cov-report=term-missing
