@@ -9,7 +9,7 @@ setup(
         # List your package dependencies here
         # "requests>=2.25.1",
     ],
-    python_requires=">=3.7.1",
+    python_requires=">=3.7.17",
 )
 
 
