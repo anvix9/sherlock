@@ -7,7 +7,10 @@ setup(
     package_dir={"": "src"},
     install_requires=[
         # List your package dependencies here
-        # "requests>=2.25.1",
+        "requests>=2.25.1",
+        "docling",
+        "arxiv",
+        "ollama",
     ],
     python_requires=">=3.8",
 )
