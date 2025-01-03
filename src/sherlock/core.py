@@ -306,7 +306,8 @@ def fetch_arxiv_data(paper_ids):
             # Use the official API to search
             search = arxiv.Search(id_list=[paper_id])
             paper = next(client.results(search))
-            
+            print(f"***************************************{paper.title}----{paper.entry_id}") 
+
             # Extract data
             paper_data = {
                 "id": paper_id,
@@ -692,6 +693,7 @@ def generate_paper_cards():
         
         # Get paper title
         #title = titles.get(paper_id, "Unknown Title")
+        print(f"*************************papers: {papers}*********************")
         title = next((paper['title'] for paper in papers if paper['id'] == paper_id), "Unknown Title")
         
         # Combine content for summary
