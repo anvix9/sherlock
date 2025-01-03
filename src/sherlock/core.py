@@ -12,9 +12,7 @@ import requests
 import subprocess
 import platform
 import shutil
-from typing import Union, Optional
-import sys
-
+from typing import Union
 
 log = logging.getLogger(__name__)
 
@@ -325,9 +323,9 @@ def fetch_arxiv_data(paper_ids):
             print(f"Error processing {paper_id}: {str(e)}")
             
     # Save metadata
-    with open(f"./paper_metadata/metadata.json", 'w') as json_file:
+    with open("./paper_metadata/metadata.json", 'w') as json_file:
         json.dump(data, json_file, indent=4)
-    print(f"Data saved to metadata.json")
+    print("Data saved to metadata.json")
 
 # Generate questions per section 
 def check_ollama_service():
