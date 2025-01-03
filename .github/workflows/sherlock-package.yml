@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest pytest-cov docling==2.14.0 arxiv
+        pip install pytest pytest-cov docling==2.14.0 arxiv torch==2.5.1 torchvision==0.20.1
         pip install -e .
     - name: Run tests
       run: |
