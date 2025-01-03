@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest pytest-cov docling arxiv ruff
+        pip install pytest pytest-cov docling==1.16.1 arxiv ruff
         pip install -e .
     - name: Run tests
       run: |
