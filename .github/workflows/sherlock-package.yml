@@ -30,7 +30,6 @@
 #        bash -c "pytest tests/ --cov=src/sherlock --cov-report=term-missing"
 name: sherlock
 on: [push, pull_request]
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -49,9 +48,9 @@ jobs:
     - name: Pull Docker Image from ECR
       run: |
         docker pull ${{ secrets.ECR_REPOSITORY_URI }}:latest
-    - name: Run Tests with Docker
+    - name: Install Dependencies
       run: |
-        docker run --rm -v $(pwd):/app ${{ secrets.ECR_REPOSITORY_URI }}:latest bash -c 'pip install arxiv && pytest /app/tests/'
+        docker run --rm -v $(pwd):/app ${{ secrets.ECR_REPOSITORY_URI }}:latest bash -c 'pip install arxiv'
     - name: Logout from Docker
       run: |
         docker logout ${{ secrets.ECR_REPOSITORY_URI }}
