@@ -29,16 +29,13 @@
 #        docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace your-docker-repo/your-image:latest \
 #        bash -c "pytest tests/ --cov=src/sherlock --cov-report=term-missing"
 name: sherlock
-
 on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
-
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -46,19 +43,15 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
         aws-region: ${{ secrets.AWS_REGION }}
-
     - name: Login to AWS ECR
       run: |
         aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.ECR_REPOSITORY_URI }}
-
     - name: Pull Docker Image from ECR
       run: |
         docker pull ${{ secrets.ECR_REPOSITORY_URI }}:latest
-
     - name: Run Tests with Docker
       run: |
-        docker run --rm ${{ secrets.ECR_REPOSITORY_URI }}:latest pytest tests/
-
+        docker run --rm -v $(pwd):/app ${{ secrets.ECR_REPOSITORY_URI }}:latest pytest /app/tests/
     - name: Logout from Docker
       run: |
         docker logout ${{ secrets.ECR_REPOSITORY_URI }}
