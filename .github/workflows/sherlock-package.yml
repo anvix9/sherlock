@@ -51,7 +51,7 @@ jobs:
         docker pull ${{ secrets.ECR_REPOSITORY_URI }}:latest
     - name: Run Tests with Docker
       run: |
-        docker run --rm -v $(pwd):/app ${{ secrets.ECR_REPOSITORY_URI }}:latest pytest /app/tests/
+        docker run --rm -v $(pwd):/app ${{ secrets.ECR_REPOSITORY_URI }}:latest bash -c 'pip install arxiv && pytest /app/tests/'
     - name: Logout from Docker
       run: |
         docker logout ${{ secrets.ECR_REPOSITORY_URI }}
