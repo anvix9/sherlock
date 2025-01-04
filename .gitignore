@@ -5,7 +5,9 @@ env/
 venv/
 ENV/
 .pytest_cache/
-
+task-definition.json
+ecs-trust-policy.json 
+awscliv2.zip
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
