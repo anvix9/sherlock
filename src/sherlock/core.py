@@ -16,9 +16,6 @@ from typing import Union
 
 log = logging.getLogger(__name__)
 
-def hello():
-    return "Hello from Sherlock!"
-
 # Main function handling the pipeline 
 def generate(path: Union[str, Path], cleanup: bool = True) -> None:
     """
