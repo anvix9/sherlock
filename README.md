@@ -10,9 +10,7 @@ pip install git+https://github.com/anvix9/sherlock.git
 
 ## Usage
 
-```python
-from sherlock import hello
-print(hello())
+```sherlock paper_path.pdf
 ```
 
 ## Development
