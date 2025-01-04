@@ -1,0 +1,18 @@
+{
+  "family": "my-task",
+  "executionRoleArn": "arn:aws:iam::528757799282:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "my-container",
+      "image": "528757799282.dkr.ecr.us-east-1.amazonaws.com/sherlock:latest",
+      "memory": 512,
+      "cpu": 256,
+      "essential": true
+    }
+  ],
+  "requiresCompatibilities": ["FARGATE"],
+  "networkMode": "awsvpc",
+  "cpu": "256",
+  "memory": "512"
+}
+

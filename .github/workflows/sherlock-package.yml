@@ -1,25 +1,63 @@
-name: sherlock 
+#name: sherlock
+#
+#on: [push, pull_request]
+#
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#    strategy:
+#      matrix:
+#        python-version: ["3.11", "3.12", "3.13"]
+#
+#    steps:
+#    - uses: actions/checkout@v4
+#
+#    - name: Use pre-built Docker container
+#      run: echo "Using pre-built Docker container for dependency management."
+#
+#    - name: Set up Python ${{ matrix.python-version }}
+#      run: |
+#        echo "Python version is managed within the Docker container."
+#
+#    - name: Install dependencies (using Docker)
+#      run: |
+#        docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace your-docker-repo/your-image:latest \
+#        bash -c "python -m pip install --upgrade pip && pip install pytest pytest-cov && pip install -e ."
+#
+#    - name: Run tests (using Docker)
+#      run: |
+#        docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace your-docker-repo/your-image:latest \
+#        bash -c "pytest tests/ --cov=src/sherlock --cov-report=term-missing"
+name: sherlock
 
 on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.11", "3.12", "3.13"]
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
       with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Login to AWS ECR
       run: |
-        python -m pip install --upgrade pip
-        pip install pytest pytest-cov docling[no_torch] 
-        pip install -e .
-    - name: Run tests
+        aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.ECR_REPOSITORY_URI }}
+
+    - name: Pull Docker Image from ECR
       run: |
-        pytest tests/ --cov=src/sherlock --cov-report=term-missing
+        docker pull ${{ secrets.ECR_REPOSITORY_URI }}:latest
+
+    - name: Run Tests with Docker
+      run: |
+        docker run --rm ${{ secrets.ECR_REPOSITORY_URI }}:latest pytest tests/
+
+    - name: Logout from Docker
+      run: |
+        docker logout ${{ secrets.ECR_REPOSITORY_URI }}
