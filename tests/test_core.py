@@ -1,7 +1,7 @@
 # tests/test_core.py
-from ..src.sherlock.core import hello 
+from ..src.sherlock import core 
 
 def test_hello():
-    assert hello() == "Hello from Sherlock!"
+    assert core.hello() == "Hello from Sherlock!"
 
 
