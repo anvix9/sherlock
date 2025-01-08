@@ -1,34 +1,4 @@
-#name: sherlock
-#
-#on: [push, pull_request]
-#
-#jobs:
-#  build:
-#    runs-on: ubuntu-latest
-#    strategy:
-#      matrix:
-#        python-version: ["3.11", "3.12", "3.13"]
-#
-#    steps:
-#    - uses: actions/checkout@v4
-#
-#    - name: Use pre-built Docker container
-#      run: echo "Using pre-built Docker container for dependency management."
-#
-#    - name: Set up Python ${{ matrix.python-version }}
-#      run: |
-#        echo "Python version is managed within the Docker container."
-#
-#    - name: Install dependencies (using Docker)
-#      run: |
-#        docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace your-docker-repo/your-image:latest \
-#        bash -c "python -m pip install --upgrade pip && pip install pytest pytest-cov && pip install -e ."
-#
-#    - name: Run tests (using Docker)
-#      run: |
-#        docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace your-docker-repo/your-image:latest \
-#        bash -c "pytest tests/ --cov=src/sherlock --cov-report=term-missing"
-name: sherlock
+name: sherlock-lit
 on: [push, pull_request]
 jobs:
   build:

@@ -8,7 +8,7 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 
 [project.scripts]
-sherlock-lit = "sherlock-lit.cli:main"
+sherlock_lit = "sherlock_lit.cli:main"
 
 [project]
 name = "Sherlock-lit"
@@ -25,5 +25,5 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/anvix9/sherlock"
-Issues = "https://github.com/anvix9/sherlock/issues"
+Homepage = "https://github.com/anvix9/sherlock-lit"
+Issues = "https://github.com/anvix9/sherlock-lit/issues"

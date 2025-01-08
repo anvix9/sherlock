@@ -15,7 +15,7 @@ setup(
     python_requires=">=3.11",
     entry_points={
         'console_scripts': [
-            'sherlock-lit=sherlock-lit.cli:main'
+            'sherlock_lit=sherlock_lit.cli:main'
             ]
         },
 )
