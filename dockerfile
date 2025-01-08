@@ -9,4 +9,3 @@ RUN apt-get update && apt-get install -y \
 # Install docling without torch (to manage torch version manually)
 RUN pip install --no-cache-dir pytest pytest-cov docling
 
-# Install any other required dependencies here

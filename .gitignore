@@ -1,7 +1,7 @@
 ~cache/
 .env
 .venv
-env/
+env_sh/
 venv/
 ENV/
 .pytest_cache/
