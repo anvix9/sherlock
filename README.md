@@ -7,7 +7,7 @@ Sherlock-lit is a Python package(part of the tools used in haut platform) design
 ## Features
 
 - **Markdown Card Generation**: Automatically generates concise and precise descriptions of NLP papers in markdown format.
-- **Efficient Processing**: Optimized for GPU acceleration when available, while remaining compatible with CPUs.
+- **Efficient Processing**: Really fast on CPUs and also can be further improved with GPU.
 - **Small Size**: less than **70 MB**.
 - **First-Time Setup**: The first run may be slower due to setup, but subsequent runs are significantly faster.
 - **Simple Command-Line Interface**: Process papers by simply providing the path to a PDF file or a folder containing PDFs files.
