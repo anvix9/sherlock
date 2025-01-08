@@ -1,6 +1,6 @@
-# Sherlock
+# Sherlock-lit
 
-Sherlock is a Python package designed to process NLP research papers (Later, on more general papers) and generate precise descriptions of the papers in markdown (MD) card format. It streamlines understanding and documentation of research papers, making it an invaluable tool for researchers, students, and developers in the NLP field to discover easily the contributions and research questions researchers tackle without being lost in the papers or being doubtful after reading the abstract.
+Sherlock-lit is a Python packagea(part of the tools used in haut platform) designed to process NLP research papers (Later, on more general papers) and generate precise descriptions of the papers in markdown (MD) card format. It streamlines understanding and documentation of research papers, making it an invaluable tool for researchers, students, and developers in the NLP field to discover easily the contributions and research questions researchers tackle without being lost in papers or being doubtful after reading the abstract.
 
 ---
 
@@ -19,7 +19,7 @@ Sherlock is a Python package designed to process NLP research papers (Later, on 
 Sherlock is currently available for installation directly from GitHub. To install, run:
 
 ```bash
-pip install git+https://github.com/anvix9/sherlock.git@features
+pip install Sherlock-lit 
 ```
 
 ---
@@ -29,7 +29,7 @@ pip install git+https://github.com/anvix9/sherlock.git@features
 Once installed, you can process a research paper by running:
 
 ```bash
-sherlock file_path.pdf
+sherlock-lit file_path.pdf
 ```
 
 Replace `file_path.pdf` with the path to the research paper you want to process. The markdown card will be generated and saved in the output directory. 
@@ -38,11 +38,11 @@ Replace `file_path.pdf` with the path to the research paper you want to process.
 
 ## Example Workflow
 
-1. Install Sherlock from GitHub.
-2. Run `sherlock` on a PDF file:
+1. Install Sherlock-lit from PypI.
+2. Run `sherlock-lit` on a PDF file:
 
    ```bash
-   sherlock example_paper.pdf
+   sherlock-lit example_paper.pdf
    ```
 
 3. Retrieve the generated markdown card from the output directory (card-papers folder located in the current directory).
@@ -57,7 +57,6 @@ Contributions are welcome! I will be writing the contribution guidelines very so
 
 ## Future Plans
 
-- Publish Sherlock on PyPI for easier installation.
 - Optimize processing speed further.
 - Improve parsing of papers.
 - Add support for more advanced GPU and multi-threaded processing.
@@ -67,6 +66,6 @@ Contributions are welcome! I will be writing the contribution guidelines very so
 
 ## License
 
-Sherlock is licensed under the [MIT License](LICENSE).
+Sherlock-lit is licensed under the [MIT License](LICENSE).
 
 ---
