@@ -8,6 +8,22 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 
 [project.scripts]
-sherlock = "sherlock.cli:main"
+sherlock-lit = "sherlock-lit.cli:main"
 
+[project]
+name = "Sherlock-lit"
+version = "0.1.0"
+authors = [
+  { name="anvix9", email="epononanvi@gmail.com" },
+]
+description = "First version of sherlock for NLP papers."
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
 
+[project.urls]
+Homepage = "https://github.com/anvix9/sherlock"
+Issues = "https://github.com/anvix9/sherlock/issues"
