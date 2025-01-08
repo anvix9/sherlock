@@ -29,7 +29,7 @@ pip install sherlock-lit
 Once installed, you can process a research paper by running:
 
 ```bash
-sherlock-lit file_path.pdf
+sherlock_lit file_path.pdf
 ```
 
 Replace `file_path.pdf` with the path to the research paper you want to process. The markdown card will be generated and saved in the output directory. 
@@ -38,11 +38,11 @@ Replace `file_path.pdf` with the path to the research paper you want to process.
 
 ## Example Workflow
 
-1. Install Sherlock-lit from PypI.
-2. Run `sherlock-lit` on a PDF file:
+1. Install sherlock-lit from PypI.
+2. Run `sherlock_lit` on a PDF file:
 
    ```bash
-   sherlock-lit example_paper.pdf
+   sherlock_lit example_paper.pdf
    ```
 
 3. Retrieve the generated markdown card from the output directory (card-papers folder located in the current directory).
