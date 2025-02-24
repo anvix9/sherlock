@@ -1,5 +1,5 @@
 # Sherlock-lit
-
+> Sherlock is processing research papers.
 Sherlock-lit is a Python package (part of the tools used in haut platform) designed to process NLP research papers (Later, on more general papers) and generate precise descriptions of the papers in markdown (MD) card format. It streamlines understanding and documentation of research papers, making it an invaluable tool for researchers, students, and developers in NLP field to discover easily the contributions and research questions researchers tackle without being lost in papers or being doubtful after reading the abstract.
 
 ---
